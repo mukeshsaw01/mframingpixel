@@ -21,10 +21,7 @@ const Navbar = () => {
       <ul className="hidden md:flex space-x-10 text-lg font-light">
         {navLinks.map((link) => (
           <li key={link.name}>
-            <a
-              href={link.href}
-              className={`pb-1 ${link.active ? 'border-b-2 border-black font-normal' : 'hover:opacity-70'}`}
-            >
+            <a href={link.href} className="pb-1 hover:opacity-70">
               {link.name}
             </a>
           </li>
@@ -54,7 +51,7 @@ const Navbar = () => {
           <li key={link.name}>
             <a
               href={link.href}
-              className={`pb-1 ${link.active ? 'border-b-2 border-black font-normal' : 'hover:opacity-70'}`}
+              className="pb-1 hover:opacity-70"
               onClick={() => setMenuOpen(false)}
             >
               {link.name}

@@ -26,7 +26,6 @@ async function getProjects() {
     const data = await res.json()
     return data.docs || []
   } catch (error) {
-    console.error('Fetch error:', error)
     throw error
   }
 }

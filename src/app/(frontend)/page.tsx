@@ -20,7 +20,6 @@ async function getLatestProject(collection: string) {
     const data = await res.json()
     return data.docs?.[0] || null
   } catch (error) {
-    console.error(`Fetch error for ${collection}:`, error)
     return null
   }
 }
