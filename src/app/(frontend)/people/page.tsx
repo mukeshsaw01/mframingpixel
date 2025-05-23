@@ -4,6 +4,15 @@ import Link from 'next/link'
 
 const API_URL = process.env.NEXT_PUBLIC_PAYLOAD_API || 'http://localhost:3000'
 
+type Project = {
+  id: string
+  images?: { image?: { url?: string }; Alt?: string; orientation?: string }[]
+  title?: string
+  client?: string
+  year?: string
+  slug?: string
+}
+
 async function getProjects() {
   try {
     const res = await fetch(`${API_URL}/api/people?depth=2&where[archive][not_equals]=true`, {
@@ -54,14 +63,14 @@ const PeoplePage = async () => {
     )
   }
 
-  const renderProjects = (projects: any[]) => {
+  const renderProjects = (projects: Project[]) => {
     const rows = []
     for (let i = 0; i < projects.length; i += 2) {
       const first = projects[i]
       const second = projects[i + 1]
       rows.push(
         <div key={`row-${i}`} className="flex gap-8 w-full">
-          {[first, second].filter(Boolean).map((project: any, idx: number) => {
+          {[first, second].filter(Boolean).map((project) => {
             const imageObj = project?.images?.[0]
             const imageUrl = imageObj?.image?.url ? `${API_URL}${imageObj.image.url}` : null
             const alt = imageObj?.Alt || project?.title || 'People Image'

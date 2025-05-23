@@ -1,6 +1,5 @@
 'use client'
 import React, { useState } from 'react'
-import Logo from '../components/Logo'
 
 const ContactPage = () => {
   const [form, setForm] = useState({
@@ -31,7 +30,7 @@ const ContactPage = () => {
       if (!res.ok) throw new Error('Failed to submit')
       setSuccess(true)
       setForm({ firstName: '', lastName: '', email: '', phone: '' })
-    } catch (err) {
+    } catch (_err) {
       setError('Submission failed. Please try again.')
     } finally {
       setSubmitting(false)
