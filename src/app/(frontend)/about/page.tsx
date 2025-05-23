@@ -22,30 +22,30 @@ const AboutPage = () => {
         <div className="w-full max-w-md text-lg text-gray-700 mt-2 z-10">
           <h2 className="text-2xl font-bold mb-4">About Us</h2>
           <p>
-            I'm Mukesh Saw, an Interior Designer by education and an Architectural Photographer by
-            passion. My journey into photography wasn't sudden—it's something that has quietly
-            followed me throughout my creative life. While I pursued a formal education in interior
-            design, my camera was never far from reach. It became a tool through which I could frame
-            and interpret the world of spaces I was designing.
+            I&apos;m Mukesh Saw, an Interior Designer by education and an Architectural Photographer
+            by passion. My journey into photography wasn&apos;t sudden—it&apos;s something that has
+            quietly followed me throughout my creative life. While I pursued a formal education in
+            interior design, my camera was never far from reach. It became a tool through which I
+            could frame and interpret the world of spaces I was designing.
             <br />
             <br />
-            Over time, I realized I didn't have to choose between design and photography. Instead, I
-            could bring them together—merging the technical understanding of interior spaces with
-            the emotional and visual power of photography. This fusion has shaped my current path:
-            capturing architecture and interiors with a sensitivity only a designer can offer. I see
-            each space not just as a composition of materials and forms, but as an experience meant
-            to be felt, lived, and remembered.
+            Over time, I realized I didn&apos;t have to choose between design and photography.
+            Instead, I could bring them together—merging the technical understanding of interior
+            spaces with the emotional and visual power of photography. This fusion has shaped my
+            current path: capturing architecture and interiors with a sensitivity only a designer
+            can offer. I see each space not just as a composition of materials and forms, but as an
+            experience meant to be felt, lived, and remembered.
             <br />
             <br />
             In my photography, I aim to highlight the intent behind a space—the way a wall curves
             with purpose, how light spills onto a textured surface, or how a carefully placed object
-            completes a room's story. Drawing from my background, I don't just document interiors—I
-            interpret them.
+            completes a room&apos;s story. Drawing from my background, I don&apos;t just document
+            interiors—I interpret them.
             <br />
             <br />
-            My work is rooted in curiosity and a desire to create something that's not just cool,
-            but meaningful. In a world increasingly driven by aesthetics and algorithms, I strive to
-            keep my lens honest, my approach human, and my outcomes original.
+            My work is rooted in curiosity and a desire to create something that&apos;s not just
+            cool, but meaningful. In a world increasingly driven by aesthetics and algorithms, I
+            strive to keep my lens honest, my approach human, and my outcomes original.
           </p>
         </div>
       </div>

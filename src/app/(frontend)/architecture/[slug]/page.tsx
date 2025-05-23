@@ -4,6 +4,12 @@ import { notFound } from 'next/navigation'
 
 const API_URL = process.env.NEXT_PUBLIC_PAYLOAD_API || 'http://localhost:3000'
 
+type ImageObj = {
+  image?: { url?: string }
+  Alt?: string
+  orientation?: string
+}
+
 async function getProjectBySlug(slug: string) {
   try {
     const res = await fetch(
@@ -15,7 +21,7 @@ async function getProjectBySlug(slug: string) {
     if (!res.ok) throw new Error('Failed to fetch project')
     const data = await res.json()
     return data.docs?.[0] || null
-  } catch (error) {
+  } catch (_error) {
     return null
   }
 }
@@ -33,7 +39,7 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
   const type = project.type || ''
   const year = project.year || ''
 
-  const renderImages = (images: any[], projectTitle: string) => {
+  const renderImages = (images: ImageObj[], projectTitle: string) => {
     const rows = []
     let i = 0
     while (i < images.length) {
@@ -47,7 +53,7 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
         rows.push(
           <div key={`row-${i}`} className="flex justify-center w-full">
             <div className="flex justify-center gap-8 w-[90vw] mx-auto">
-              {[curr, next].map((imgObj: any, idx: number) => {
+              {[curr, next].map((imgObj, idx: number) => {
                 const imageUrl = imgObj?.image?.url ? `${API_URL}${imgObj.image.url}` : null
                 const alt = imgObj?.Alt || projectTitle || `Project Image ${i + idx + 1}`
                 return (
