@@ -1,5 +1,6 @@
 import React from 'react'
 import Logo from '../components/Logo'
+import Image from 'next/image'
 
 const AboutPage = () => {
   return (
@@ -14,11 +15,16 @@ const AboutPage = () => {
       <div className="w-full md:w-[50vw] flex flex-col items-center justify-start p-8 relative z-10">
         {/* Glassmorphic overlay */}
         <div className="absolute inset-0 w-full h-full bg-white/60 backdrop-blur-md border border-white/30 rounded-none z-0 pointer-events-none" />
-        <img
-          src="https://lzgukookhycbbgxkrawb.supabase.co/storage/v1/object/public/mframingpixel//mukesh.jpg"
-          alt="Mukesh Saw"
-          className="w-full max-w-md aspect-square object-cover rounded-xl mb-2 z-10"
-        />
+        <div className="relative w-full max-w-md aspect-square mb-2 z-10">
+          <Image
+            src="https://lzgukookhycbbgxkrawb.supabase.co/storage/v1/object/public/mframingpixel//mukesh.jpg"
+            alt="Mukesh Saw"
+            fill
+            className="object-cover rounded-xl"
+            sizes="(max-width: 640px) 100vw, 448px"
+            priority
+          />
+        </div>
         <div className="w-full max-w-md text-lg text-gray-700 mt-2 z-10">
           <h2 className="text-2xl font-bold mb-4">About Us</h2>
           <p>

@@ -27,11 +27,12 @@ async function getProjectBySlug(slug: string) {
 }
 
 interface ProjectPageProps {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 const ProjectPage = async ({ params }: ProjectPageProps) => {
-  const project = await getProjectBySlug(params.slug)
+  const { slug } = await params
+  const project = await getProjectBySlug(slug)
   if (!project) return notFound()
 
   const images = project.images || []
