@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 
-const API_URL = process.env.NEXT_PUBLIC_PAYLOAD_API || 'http://localhost:3000'
+const API_URL = process.env.NEXT_PUBLIC_PAYLOAD_API || 'https://mframingpixel.vercel.app'
 
 type ImageObj = {
   image?: { url?: string }

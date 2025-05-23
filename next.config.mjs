@@ -4,7 +4,12 @@ import { withPayload } from '@payloadcms/next/withPayload'
 const nextConfig = {
   // Your Next.js config here
   images: {
-    domains: ['images.squarespace-cdn.com', 'localhost', 'lzgukookhycbbgxkrawb.supabase.co'],
+    domains: [
+      'images.squarespace-cdn.com',
+      'localhost',
+      'lzgukookhycbbgxkrawb.supabase.co',
+      'mframingpixel.vercel.app',
+    ],
   },
   remotePatterns: [
     {
@@ -20,7 +25,12 @@ const nextConfig = {
     },
     {
       protocol: 'https',
-      hostname: process.env.VERCEL_URL || 'your-vercel-domain.vercel.app',
+      hostname: 'mframingpixel.vercel.app',
+      pathname: '/api/media/file/**',
+    },
+    {
+      protocol: 'https',
+      hostname: process.env.VERCEL_URL || 'mframingpixel.vercel.app',
       pathname: '/api/media/file/**',
     },
   ],

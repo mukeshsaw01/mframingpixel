@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const API_URL = process.env.NEXT_PUBLIC_PAYLOAD_API || 'http://localhost:3000'
+const API_URL = process.env.NEXT_PUBLIC_PAYLOAD_API || 'https://mframingpixel.vercel.app'
 
 type Project = {
   id: string
