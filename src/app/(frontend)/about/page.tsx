@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import aboutBackground from '../../../../About.PNG'
+import aboutBackground from '../../../../about.png'
 
 const AboutPage = () => {
   return (

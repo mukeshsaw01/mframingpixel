@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import logoPng from '../../../../logo.PNG'
+import logoPng from '../../../../logo.png'
 
 const Logo = ({ className = '' }: { className?: string }) => (
   <Image
