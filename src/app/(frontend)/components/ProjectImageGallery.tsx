@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 
 type ImageObj = {
   image?: { url?: string }
@@ -34,21 +34,21 @@ const ProjectImageGallery = ({ images, projectTitle = 'Project', apiUrl }: Proje
     [normalizedImages],
   )
 
-  const goToNext = () => {
+  const goToNext = useCallback(() => {
     if (selectedIndex === null || validImageIndexes.length === 0) return
     const currentPos = validImageIndexes.indexOf(selectedIndex)
     if (currentPos === -1) return
     const nextPos = (currentPos + 1) % validImageIndexes.length
     setSelectedIndex(validImageIndexes[nextPos])
-  }
+  }, [selectedIndex, validImageIndexes])
 
-  const goToPrevious = () => {
+  const goToPrevious = useCallback(() => {
     if (selectedIndex === null || validImageIndexes.length === 0) return
     const currentPos = validImageIndexes.indexOf(selectedIndex)
     if (currentPos === -1) return
     const prevPos = (currentPos - 1 + validImageIndexes.length) % validImageIndexes.length
     setSelectedIndex(validImageIndexes[prevPos])
-  }
+  }, [selectedIndex, validImageIndexes])
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
@@ -59,7 +59,7 @@ const ProjectImageGallery = ({ images, projectTitle = 'Project', apiUrl }: Proje
 
     window.addEventListener('keydown', onKeyDown)
     return () => window.removeEventListener('keydown', onKeyDown)
-  }, [selectedIndex, validImageIndexes])
+  }, [selectedIndex, goToNext, goToPrevious])
 
   const renderImages = () => {
     const rows = []

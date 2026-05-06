@@ -3,6 +3,7 @@ import { withPayload } from '@payloadcms/next/withPayload'
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Your Next.js config here
+  turbopack: {},
   images: {
     domains: [
       'images.squarespace-cdn.com',
@@ -42,4 +43,14 @@ const nextConfig = {
   },
 }
 
-export default withPayload(nextConfig, { devBundleServerPackages: false })
+const payloadNextConfig = withPayload(nextConfig, { devBundleServerPackages: false })
+
+if (payloadNextConfig.experimental?.turbo) {
+  payloadNextConfig.turbopack = {
+    ...(payloadNextConfig.turbopack || {}),
+    ...payloadNextConfig.experimental.turbo,
+  }
+  delete payloadNextConfig.experimental.turbo
+}
+
+export default payloadNextConfig

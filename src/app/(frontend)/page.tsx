@@ -19,7 +19,7 @@ async function getLatestProject(collection: string) {
 
     const data = await res.json()
     return data.docs?.[0] || null
-  } catch (error) {
+  } catch (_error) {
     return null
   }
 }

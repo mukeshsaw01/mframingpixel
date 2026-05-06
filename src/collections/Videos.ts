@@ -34,7 +34,7 @@ export const Videos: CollectionConfig = {
           label: 'YouTube URL',
           type: 'text',
           required: true,
-          validate: (value) => {
+          validate: (value: unknown) => {
             if (typeof value !== 'string') return 'Please provide a YouTube URL.'
             if (!youtubeURLPattern.test(value.trim())) {
               return 'Please enter a valid YouTube watch or share URL.'
