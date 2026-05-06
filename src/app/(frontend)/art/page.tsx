@@ -2,7 +2,9 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const API_URL = process.env.NEXT_PUBLIC_PAYLOAD_API || 'https://mframingpixel.vercel.app'
+export const dynamic = 'force-dynamic'
+
+const API_URL = (process.env.NEXT_PUBLIC_PAYLOAD_API || 'https://mframingpixel.vercel.app').replace(/\/+$/, '')
 
 type Project = {
   id: string
