@@ -7,8 +7,8 @@ import { Afacad } from 'next/font/google'
 const afacad = Afacad({ subsets: ['latin'], weight: ['400', '500', '700'] })
 
 export const metadata = {
-  description: 'A blank template using Payload in a Next.js app.',
-  title: 'Payload Blank Template',
+  description: 'Official website of Mframingpixels.',
+  title: 'Mframingpixels',
 }
 
 export default async function RootLayout(props: { children: React.ReactNode }) {
