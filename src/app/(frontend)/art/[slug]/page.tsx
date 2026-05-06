@@ -2,7 +2,7 @@ import React from 'react'
 import { notFound } from 'next/navigation'
 import ProjectImageGallery from '../../components/ProjectImageGallery'
 
-const API_URL = process.env.NEXT_PUBLIC_PAYLOAD_API || 'https://mframingpixel.vercel.app'
+const API_URL = (process.env.NEXT_PUBLIC_PAYLOAD_API || 'https://mframingpixel.vercel.app').replace(/\/+$/, '')
 
 async function getProjectBySlug(slug: string) {
   try {

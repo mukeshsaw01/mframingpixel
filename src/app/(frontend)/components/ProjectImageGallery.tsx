@@ -17,16 +17,21 @@ type ProjectImageGalleryProps = {
 
 const ProjectImageGallery = ({ images, projectTitle = 'Project', apiUrl }: ProjectImageGalleryProps) => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
+  const normalizedApiUrl = apiUrl.replace(/\/+$/, '')
 
   const normalizedImages = useMemo(
     () =>
       images.map((imgObj, i) => {
-        const imageUrl = imgObj?.image?.url ? `${apiUrl}${imgObj.image.url}` : null
+        const imageUrl = imgObj?.image?.url
+          ? imgObj.image.url.startsWith('http')
+            ? imgObj.image.url
+            : `${normalizedApiUrl}${imgObj.image.url}`
+          : null
         const alt = imgObj?.Alt || projectTitle || `Project Image ${i + 1}`
         const orientation = imgObj?.orientation || 'landscape'
         return { imageUrl, alt, orientation }
       }),
-    [images, projectTitle, apiUrl],
+    [images, projectTitle, normalizedApiUrl],
   )
 
   const validImageIndexes = useMemo(

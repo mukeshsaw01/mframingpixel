@@ -1,7 +1,7 @@
 import React from 'react'
 import { notFound } from 'next/navigation'
 
-const API_URL = process.env.NEXT_PUBLIC_PAYLOAD_API || 'https://mframingpixel.vercel.app'
+const API_URL = (process.env.NEXT_PUBLIC_PAYLOAD_API || 'https://mframingpixel.vercel.app').replace(/\/+$/, '')
 
 type VideoEntry = {
   id?: string
